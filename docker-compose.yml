@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: Dockerfile.mysql
+    container_name: kotlin-example-mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: example
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
