@@ -1,5 +1,6 @@
 plugins {
-    id("java")
+    kotlin("jvm")
+    application
 }
 
 group = "org.example"
@@ -16,4 +17,23 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+sourceSets {
+    main {
+        kotlin {
+            srcDirs("src/main/kotlin")
+        }
+        java {
+            srcDirs("src/main/java")
+        }
+    }
+}
+
+application {
+    mainClass.set("org.example.MainKt")
 }
