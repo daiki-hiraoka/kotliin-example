@@ -7,6 +7,7 @@ plugins {
     // 依存関係の管理のサポートをしてくれるプラグイン
     // Spring Bootの起動に必要なstarter関連の依存関係を追加するとき、入れているSpring Bootで必要となるバージョンを指定してくれる
     id("io.spring.dependency-management")
+    id("com.arenagod.gradle.MybatisGenerator") version "1.4"
 }
 
 group = "com.example"
@@ -36,6 +37,10 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("org.mybatis:mybatis:3.5.6")
+    implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.2.1")
+    implementation("mysql:mysql-connector-java:8.0.23")
+    implementation("org.mybatis.generator:mybatis-generator-core:1.4.0")
 }
 
 kotlin {
@@ -46,4 +51,9 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+mybatisGenerator {
+    verbose = true
+    configFile = "${projectDir}/src/main/resources/generatorConfig.xml"
 }
