@@ -15,7 +15,10 @@ data class HelloRequest(val name: String)
 // @ControllerのままだとSpring Bootが戻り値をビュー名だと認識して、Thymeleafを通じて対応するHTMLを探しに行ってしまうのでエラーになる
 @RestController
 @RequestMapping("greeter")
-class GreeterController {
+class GreeterController(
+    // コンストラクタインジェクションが主流なので、基本的にこのDI方法を使用する
+    private val greeter: Greeter
+) {
     @GetMapping("/hello")
     fun hello(@RequestParam("name") name: String): HelloResponse {
         return HelloResponse("Hello $name")
@@ -29,5 +32,11 @@ class GreeterController {
     @PostMapping("/hello")
     fun helloByPost(@RequestBody request: HelloRequest): HelloResponse {
         return HelloResponse("Hello ${request.name}")
+    }
+
+    @GetMapping("/hello/byservice/{name}")
+    fun helloByService(@PathVariable("name") name: String): HelloResponse {
+        val message = greeter.sayHello(name)
+        return HelloResponse(message)
     }
 }
