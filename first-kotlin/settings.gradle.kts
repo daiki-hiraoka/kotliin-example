@@ -7,4 +7,6 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
 rootProject.name = "KotlinExamply"
-
+include("untitled")
+include("first-kotlin")
+include("spring-boot")
