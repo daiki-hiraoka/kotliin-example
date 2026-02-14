@@ -12,7 +12,7 @@ fun main() {
 }
 
 class MybatisInsertPractice(
-    private val mybatisSessionFactory: MybatisSessionFactory
+    private val mybatisSessionFactory: MybatisSessionFactory,
 ) {
     fun insert() {
         val user = UserRecord(103, "Shiro", 18, "Hello")
