@@ -1,11 +1,12 @@
 package com.example.demo
 
 import com.example.demo.database.UserMapper
+import com.example.demo.database.UserRecord
+import com.example.demo.database.insert
 import com.example.demo.database.selectByPrimaryKey
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import com.example.demo.dto.UserInsertRequestDto
+import com.example.demo.dto.UserInsertResponseDto
+import org.springframework.web.bind.annotation.*
 
 @Suppress("SpringJavaInjectionPointsAutowiringInspection")
 @RestController
@@ -17,4 +18,15 @@ class UserController(
     fun selectById(
         @PathVariable id: Int,
     ) = userMapper.selectByPrimaryKey(id)
+
+    @PostMapping("/insert")
+    fun insert(@RequestBody request: UserInsertRequestDto): UserInsertResponseDto {
+        val record = UserRecord(
+            id = request.id,
+            name = request.name,
+            age = request.age,
+            profile = request.profile
+        )
+        return UserInsertResponseDto(userMapper.insert(record))
+    }
 }
