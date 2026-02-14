@@ -9,4 +9,3 @@ plugins {
 rootProject.name = "KotlinExamply"
 include("untitled")
 include("first-kotlin")
-include("spring-boot")
