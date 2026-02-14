@@ -13,6 +13,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="database.UserMapper" />
+        <mapper class="com.example.demo.database.UserMapper" />
     </mappers>
 </configuration>
