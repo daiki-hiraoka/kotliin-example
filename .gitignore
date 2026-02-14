@@ -47,5 +47,8 @@ bin/
 ### VS Code ###
 .vscode/
 
+### Docker ###
+**/db/data/
+
 ### Mac OS ###
 .DS_Store
