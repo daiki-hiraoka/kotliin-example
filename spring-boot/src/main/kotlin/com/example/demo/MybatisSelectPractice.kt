@@ -11,7 +11,7 @@ import org.mybatis.dynamic.sql.SqlBuilder.*
 
 
 fun main() {
-    val practice = MybatisPractice(MybatisSessionFactoryImpl())
+    val practice = MybatisSelectPractice(MybatisSessionFactoryImpl())
     practice.select()
     practice.selectWhere()
     practice.selectWhere2()
@@ -19,7 +19,7 @@ fun main() {
     practice.selectAllCount()
 }
 
-class MybatisPractice(
+class MybatisSelectPractice(
     private val mybatisSessionFactory: MybatisSessionFactory
 ) {
     fun select() = mybatisSessionFactory.withSession { session ->
