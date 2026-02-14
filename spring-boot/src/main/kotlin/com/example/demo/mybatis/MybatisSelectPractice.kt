@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.demo.mybatis
 
 import database.UserDynamicSqlSupport.User.age
 import database.UserDynamicSqlSupport.User.name

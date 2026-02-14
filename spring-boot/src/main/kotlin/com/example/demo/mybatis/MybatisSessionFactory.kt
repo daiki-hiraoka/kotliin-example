@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.demo.mybatis
 
 import org.apache.ibatis.session.SqlSession
 
