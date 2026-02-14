@@ -8,17 +8,6 @@ import database.select
 import database.selectByPrimaryKey
 import org.mybatis.dynamic.sql.SqlBuilder.*
 
-
-
-fun main() {
-    val practice = MybatisSelectPractice(MybatisSessionFactoryImpl())
-    practice.select()
-    practice.selectWhere()
-    practice.selectWhere2()
-    practice.selectCount()
-    practice.selectAllCount()
-}
-
 class MybatisSelectPractice(
     private val mybatisSessionFactory: MybatisSessionFactory
 ) {
