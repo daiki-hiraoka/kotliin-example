@@ -8,7 +8,7 @@ plugins {
     // Spring Bootの起動に必要なstarter関連の依存関係を追加するとき、入れているSpring Bootで必要となるバージョンを指定してくれる
     id("io.spring.dependency-management")
     id("com.thinkimi.gradle.MybatisGenerator") version "2.4"
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
+
 }
 
 group = "com.example"
@@ -60,12 +60,6 @@ tasks.withType<Test> {
 
 springBoot {
     mainClass.set("com.example.demo.DemoApplicationKt")
-}
-
-ktlint {
-    filter {
-        exclude { it.file.path.contains("/database/") }
-    }
 }
 
 configurations {
