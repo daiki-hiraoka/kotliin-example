@@ -11,6 +11,14 @@ import org.apache.ibatis.session.SqlSessionFactory
 import org.apache.ibatis.session.SqlSessionFactoryBuilder
 import org.mybatis.dynamic.sql.SqlBuilder.*
 
+fun main() {
+    select()
+    selectWhere()
+    selectWhere2()
+    selectCount()
+    selectAllCount()
+}
+
 fun createSessionFactory(): SqlSessionFactory {
     val resource = "mybatis-config.xml"
     val inputStream = Resources.getResourceAsStream(resource)
@@ -63,10 +71,3 @@ fun selectAllCount(){
     }
 }
 
-fun main() {
-    select()
-    selectWhere()
-    selectWhere2()
-    selectCount()
-    selectAllCount()
-}
