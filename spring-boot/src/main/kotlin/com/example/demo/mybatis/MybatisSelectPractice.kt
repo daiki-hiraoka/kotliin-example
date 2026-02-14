@@ -1,11 +1,11 @@
 package com.example.demo.mybatis
 
-import database.UserDynamicSqlSupport.User.age
-import database.UserDynamicSqlSupport.User.name
-import database.UserMapper
-import database.count
-import database.select
-import database.selectByPrimaryKey
+import com.example.demo.database.UserDynamicSqlSupport.User.age
+import com.example.demo.database.UserDynamicSqlSupport.User.name
+import com.example.demo.database.UserMapper
+import com.example.demo.database.count
+import com.example.demo.database.select
+import com.example.demo.database.selectByPrimaryKey
 import org.mybatis.dynamic.sql.SqlBuilder.isEqualTo
 import org.mybatis.dynamic.sql.SqlBuilder.isGreaterThanOrEqualTo
 

@@ -1,8 +1,9 @@
 package com.example.demo.mybatis
 
-import database.UserDynamicSqlSupport.User.name
-import database.delete
-import database.deleteByPrimaryKey
+import com.example.demo.database.UserDynamicSqlSupport.User.name
+import com.example.demo.database.UserMapper
+import com.example.demo.database.delete
+import com.example.demo.database.deleteByPrimaryKey
 import org.mybatis.dynamic.sql.SqlBuilder.isEqualTo
 
 fun main() {
@@ -16,7 +17,7 @@ class MybatisDeletePractice(
 ) {
     fun deleteByPrimaryKey() {
         MybatisSessionFactoryImpl().withSession { session ->
-            val mapper = session.getMapper(database.UserMapper::class.java)
+            val mapper = session.getMapper(UserMapper::class.java)
             val count = mapper.deleteByPrimaryKey(102)
             session.commit()
             println("${count}行のレコードを削除しました")
@@ -25,10 +26,11 @@ class MybatisDeletePractice(
 
     fun delete() {
         MybatisSessionFactoryImpl().withSession { session ->
-            val mapper = session.getMapper(database.UserMapper::class.java)
-            val count = mapper.delete {
-                where(name, isEqualTo("Jiro"))
-            }
+            val mapper = session.getMapper(UserMapper::class.java)
+            val count =
+                mapper.delete {
+                    where(name, isEqualTo("Jiro"))
+                }
             session.commit()
             println("${count}行のレコードを削除しました")
         }

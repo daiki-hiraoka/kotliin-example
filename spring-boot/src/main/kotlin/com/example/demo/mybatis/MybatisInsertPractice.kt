@@ -1,9 +1,9 @@
 package com.example.demo.mybatis
 
-import database.UserMapper
-import database.UserRecord
-import database.insert
-import database.insertMultiple
+import com.example.demo.database.UserMapper
+import com.example.demo.database.UserRecord
+import com.example.demo.database.insert
+import com.example.demo.database.insertMultiple
 
 fun main() {
     val mybatisInsertPractice = MybatisInsertPractice(MybatisSessionFactoryImpl())
