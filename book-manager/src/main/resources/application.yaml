@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: book-manager
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/example?characterEncoding=utf8
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
