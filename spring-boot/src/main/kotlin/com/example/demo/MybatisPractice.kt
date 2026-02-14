@@ -3,6 +3,7 @@ package com.example.demo
 import database.UserDynamicSqlSupport.User.age
 import database.UserDynamicSqlSupport.User.name
 import database.UserMapper
+import database.count
 import database.select
 import database.selectByPrimaryKey
 import org.apache.ibatis.io.Resources
@@ -40,7 +41,17 @@ fun selectWhere2() {
         val userList = mapper.select {
             where(age, isGreaterThanOrEqualTo(25))
         }
-        print(userList)
+        println(userList)
+    }
+}
+
+fun selectCount() {
+    createSessionFactory().openSession().use { session ->
+        val mapper = session.getMapper(UserMapper::class.java)
+        val count = mapper.count {
+            where(age, isGreaterThanOrEqualTo(25))
+        }
+        println(count)
     }
 }
 
@@ -48,4 +59,5 @@ fun main() {
     select()
     selectWhere()
     selectWhere2()
+    selectCount()
 }
