@@ -72,6 +72,11 @@ configurations {
     mybatisGenerator
 }
 
+tasks.named("mbGenerator") {
+    group = "mybatis"
+    description = "Generate MyBatis mapper files"
+}
+
 mybatisGenerator {
     verbose = true
     configFile = "$projectDir/src/main/resources/generatorConfig.xml"
