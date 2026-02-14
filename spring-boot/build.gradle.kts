@@ -38,6 +38,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4")
     implementation("org.mybatis:mybatis:3.5.6")
     implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.2.1")
     implementation("mysql:mysql-connector-java:8.0.23")
