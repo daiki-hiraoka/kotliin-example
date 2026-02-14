@@ -11,8 +11,8 @@
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/example" userId="root" password="mysql">
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
-        <javaModelGenerator targetPackage="database" targetProject="src/main/kotlin"></javaModelGenerator>
-        <javaClientGenerator targetPackage="database" targetProject="src/main/kotlin"></javaClientGenerator>
+        <javaModelGenerator targetPackage="com.example.demo.database" targetProject="src/main/kotlin"></javaModelGenerator>
+        <javaClientGenerator targetPackage="com.example.demo.database" targetProject="src/main/kotlin"></javaClientGenerator>
         <table tableName="user"/>
     </context>
 </generatorConfiguration>

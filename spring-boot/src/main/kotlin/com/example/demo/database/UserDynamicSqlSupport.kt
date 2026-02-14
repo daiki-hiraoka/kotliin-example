@@ -1,10 +1,10 @@
 /*
  * Auto-generated file. Created by MyBatis Generator
  */
-package database
+package com.example.demo.database
 
-import org.mybatis.dynamic.sql.SqlTable
 import java.sql.JDBCType
+import org.mybatis.dynamic.sql.SqlTable
 
 object UserDynamicSqlSupport {
     object User : SqlTable("user") {
