@@ -3,7 +3,6 @@ package com.example.demo.mybatis
 import org.junit.jupiter.api.Test
 
 class MybatisSelectPracticeTest {
-
     private val practice = MybatisSelectPractice(MybatisSessionFactoryImpl())
 
     @Test

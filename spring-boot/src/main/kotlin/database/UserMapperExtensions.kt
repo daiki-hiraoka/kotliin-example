@@ -8,16 +8,13 @@ import database.UserDynamicSqlSupport.User.age
 import database.UserDynamicSqlSupport.User.id
 import database.UserDynamicSqlSupport.User.name
 import database.UserDynamicSqlSupport.User.profile
-import database.UserRecord
 import org.mybatis.dynamic.sql.SqlBuilder.isEqualTo
 import org.mybatis.dynamic.sql.util.kotlin.*
 import org.mybatis.dynamic.sql.util.kotlin.mybatis3.*
 
-fun UserMapper.count(completer: CountCompleter) =
-    countFrom(this::count, User, completer)
+fun UserMapper.count(completer: CountCompleter) = countFrom(this::count, User, completer)
 
-fun UserMapper.delete(completer: DeleteCompleter) =
-    deleteFrom(this::delete, User, completer)
+fun UserMapper.delete(completer: DeleteCompleter) = deleteFrom(this::delete, User, completer)
 
 fun UserMapper.deleteByPrimaryKey(id_: Int) =
     delete {
@@ -40,8 +37,7 @@ fun UserMapper.insertMultiple(records: Collection<UserRecord>) =
         map(profile).toProperty("profile")
     }
 
-fun UserMapper.insertMultiple(vararg records: UserRecord) =
-    insertMultiple(records.toList())
+fun UserMapper.insertMultiple(vararg records: UserRecord) = insertMultiple(records.toList())
 
 fun UserMapper.insertSelective(record: UserRecord) =
     insert(this::insert, record, User) {
@@ -53,22 +49,18 @@ fun UserMapper.insertSelective(record: UserRecord) =
 
 private val columnList = listOf(id, name, age, profile)
 
-fun UserMapper.selectOne(completer: SelectCompleter) =
-    selectOne(this::selectOne, columnList, User, completer)
+fun UserMapper.selectOne(completer: SelectCompleter) = selectOne(this::selectOne, columnList, User, completer)
 
-fun UserMapper.select(completer: SelectCompleter) =
-    selectList(this::selectMany, columnList, User, completer)
+fun UserMapper.select(completer: SelectCompleter) = selectList(this::selectMany, columnList, User, completer)
 
-fun UserMapper.selectDistinct(completer: SelectCompleter) =
-    selectDistinct(this::selectMany, columnList, User, completer)
+fun UserMapper.selectDistinct(completer: SelectCompleter) = selectDistinct(this::selectMany, columnList, User, completer)
 
 fun UserMapper.selectByPrimaryKey(id_: Int) =
     selectOne {
         where(id, isEqualTo(id_))
     }
 
-fun UserMapper.update(completer: UpdateCompleter) =
-    update(this::update, User, completer)
+fun UserMapper.update(completer: UpdateCompleter) = update(this::update, User, completer)
 
 fun KotlinUpdateBuilder.updateAllColumns(record: UserRecord) =
     apply {

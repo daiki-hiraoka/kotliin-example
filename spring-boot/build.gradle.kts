@@ -8,6 +8,7 @@ plugins {
     // Spring Bootの起動に必要なstarter関連の依存関係を追加するとき、入れているSpring Bootで必要となるバージョンを指定してくれる
     id("io.spring.dependency-management")
     id("com.thinkimi.gradle.MybatisGenerator") version "2.4"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
 }
 
 group = "com.example"
@@ -41,7 +42,7 @@ dependencies {
     implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.2.1")
     implementation("mysql:mysql-connector-java:8.0.23")
     implementation("org.mybatis.generator:mybatis-generator-core:1.4.0")
-    
+
     // MyBatis Generator用の依存関係
     mybatisGenerator("org.mybatis.generator:mybatis-generator-core:1.4.0")
     mybatisGenerator("mysql:mysql-connector-java:8.0.23")
@@ -61,17 +62,24 @@ springBoot {
     mainClass.set("com.example.demo.DemoApplicationKt")
 }
 
+ktlint {
+    filter {
+        exclude { it.file.path.contains("/database/") }
+    }
+}
+
 configurations {
     mybatisGenerator
 }
 
 mybatisGenerator {
     verbose = true
-    configFile = "${projectDir}/src/main/resources/generatorConfig.xml"
-    mybatisProperties = mapOf(
-        "jdbcUrl" to "jdbc:mysql://127.0.0.1:3306/example",
-        "jdbcDriverClass" to "com.mysql.cj.jdbc.Driver",
-        "jdbcUsername" to "root",
-        "jdbcPassword" to "mysql"
-    )
+    configFile = "$projectDir/src/main/resources/generatorConfig.xml"
+    mybatisProperties =
+        mapOf(
+            "jdbcUrl" to "jdbc:mysql://127.0.0.1:3306/example",
+            "jdbcDriverClass" to "com.mysql.cj.jdbc.Driver",
+            "jdbcUsername" to "root",
+            "jdbcPassword" to "mysql",
+        )
 }

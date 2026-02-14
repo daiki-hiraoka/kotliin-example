@@ -3,8 +3,8 @@
  */
 package database
 
-import java.sql.JDBCType
 import org.mybatis.dynamic.sql.SqlTable
+import java.sql.JDBCType
 
 object UserDynamicSqlSupport {
     object User : SqlTable("user") {

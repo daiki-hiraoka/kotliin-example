@@ -7,5 +7,5 @@ data class UserRecord(
     var id: Int? = null,
     var name: String? = null,
     var age: Int? = null,
-    var profile: String? = null
+    var profile: String? = null,
 )
