@@ -55,9 +55,18 @@ fun selectCount() {
     }
 }
 
+fun selectAllCount(){
+    createSessionFactory().openSession().use { session ->
+        val mapper = session.getMapper(UserMapper::class.java)
+        val count = mapper.count{ allRows() }
+        println(count)
+    }
+}
+
 fun main() {
     select()
     selectWhere()
     selectWhere2()
     selectCount()
+    selectAllCount()
 }
